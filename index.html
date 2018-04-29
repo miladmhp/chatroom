@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+        <link rel="stylesheet" href="./assets/css/styles.min.css">
+    </head>
+    <body>
+        <section id="chatroom-new" class="app-page-container rtl">
+    <div class="container-full">
+        <div class="row">
+            <!-- Video Chat (Add active for video-chat) -->
+            <div class="video-chat col-md-8" >
+                <div class="self-cam">
+
+                </div>
+                <div class="actions">
+                    <button class="default fullscreen-btn" >
+                        <i class="material-icons">fullscreen</i>
+                    </button>
+                    <button class="default">
+                        <i class="material-icons">picture_in_picture</i>
+                    </button>
+                    <button mat-mini-fab class="close-button">
+                        <i class="material-icons">call_end</i>
+                    </button>
+                </div>
+                <div class="calling">
+                    <img src="./assets/img/user.jpg" alt="">
+                    <span class="name">حسین حاجی مالی</span>
+                </div>
+                <!-- You can also use the class "info" for a blue background -->
+                <div class="reconnecting error">
+                    <span>در حال اتصال...</span>
+                </div>
+            </div>
+            <!-- Video Chat End -->
+            <div class="members col-md-3">
+                <form class="search" action="#">
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="sample3">
+                    <label class="mdl-textfield__label" for="sample3">Text...</label>
+                    <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+                      <i class="material-icons">search</i>
+                    </button>
+                  </div>
+                </form>
+                <div class="close-btn">
+                    <i class="material-icons">close</i>
+                </div>
+                <div class="scroll">
+                    <div class="members-box">
+                            <h5> اعضای تیم</h5>
+
+                            <div class="user">
+                                <div class="account">
+                                    <img src="./assets/img/user.jpg" alt="">
+                                    <div class="call-overlay">
+                                        <i class="material-icons">videocam</i>
+                                    </div>
+                                    <i class="material-icons status-icon online">check_circle</i>
+
+                                    <span class="name">حسام ظاهری</span>
+                                    <br>
+                                    <span class="desc">مربی</span>
+                                </div>
+                            </div>
+
+                            <div class="user">
+                                <div class="account">
+                                    <img src="./assets/img/user.jpg" alt="">
+                                    <div class="call-overlay">
+                                        <i class="material-icons">videocam</i>
+                                    </div>
+                                    <i class="material-icons status-icon online">check_circle</i>
+
+                                    <span class="name">آرمین قاسمی</span>
+                                    <br>
+                                    <span class="desc">مربی</span>
+                                </div>
+                            </div>
+
+                            <div class="user" >
+                                <div class="account">
+                                    <img src="./assets/img/user.jpg" alt="">
+                                    <div class="call-overlay">
+                                        <i class="material-icons">videocam</i>
+                                    </div>
+                                    <i class="material-icons status-icon online">check_circle</i>
+
+                                    <span class="name">اشکان پورقاسم</span>
+                                    <br>
+                                    <span class="desc">مربی</span>
+                                </div>
+                            </div>
+
+                    </div>
+                    <div class="members-box">
+                            <h5> اعضای تیم</h5>
+
+                            <div class="user">
+                                <div class="account">
+                                    <img src="./assets/img/user.jpg" alt="">
+                                    <div class="call-overlay">
+                                        <i class="material-icons">videocam</i>
+                                    </div>
+                                    <i class="material-icons status-icon online">check_circle</i>
+
+                                    <span class="name">حسام ظاهری</span>
+                                    <br>
+                                    <span class="desc">مربی</span>
+                                </div>
+                            </div>
+
+                            <div class="user">
+                                <div class="account">
+                                    <img src="./assets/img/user.jpg" alt="">
+                                    <div class="call-overlay">
+                                        <i class="material-icons">videocam</i>
+                                    </div>
+                                    <i class="material-icons status-icon online">check_circle</i>
+
+                                    <span class="name">آرمین قاسمی</span>
+                                    <br>
+                                    <span class="desc">مربی</span>
+                                </div>
+                            </div>
+
+                            <div class="user" >
+                                <div class="account">
+                                    <img src="./assets/img/user.jpg" alt="">
+                                    <div class="call-overlay">
+                                        <i class="material-icons">videocam</i>
+                                    </div>
+                                    <i class="material-icons status-icon online">check_circle</i>
+
+                                    <span class="name">اشکان پورقاسم</span>
+                                    <br>
+                                    <span class="desc">مربی</span>
+                                </div>
+                            </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- Chat Section col-md-4 when video is active -->
+            <div class="chat col-md-9" >
+                <section class="title">
+                    <div class="user">
+                        <div class="account">
+                            <div class="show-xs">
+                                <i class="material-icons">menu</i>
+                            </div>
+                            <img src="./assets/img/user.jpg" alt="">
+                            <i class="material-icons status-icon online">check_circle</i>
+
+                            <span class="name">اشکان پورقاسم</span>
+                            <br>
+                            <span class="desc">مربی</span>
+                        </div>
+                    </div>
+                </section>
+                <section class="messages">
+                    <div>
+
+                            <div class="message">
+                                <img src="./assets/img/user.jpg" alt="">
+
+                                <span class="name">حسین حاجی مالی</span>
+                                <span class="time">11:05am</span>
+                                <br>
+                                <span class="content">
+                                همهٔ حیوانات باهم برابرند، اما بعضی برابرترند
+                            </span>
+                            </div>
+
+                            <div class="strike">
+                                <span>۲ روز پیش</span>
+                            </div>
+
+                            <div class="message">
+                                <img src="./assets/img/user.jpg" alt="">
+
+                                <span class="name">حسام ظاهری</span>
+                                <span class="time">11:05am</span>
+                                <br>
+                                <span class="content">
+                                همه آنها که روی دوپا راه می‌روند دشمن هستند.
+                                <br>
+                                همه آنها که چهارپا یا بالدار هستند، دوستند.
+                            </span>
+                            </div>
+
+                            <div class="message">
+                                <img src="./assets/img/user.jpg" alt="">
+
+                                <span class="name">حسام ظاهری</span>
+                                <span class="time">11:05am</span>
+                                <br>
+                                <span class="content no-bg">
+                                <i class="material-icons">phone_missed</i> تماس ناموفق
+                            </span>
+                            </div>
+
+                            <div class="message alt">
+                                <span class="time">11:05am</span>
+                                <img src="./assets/img/user.jpg" alt="">
+
+                                <span class="name">شما</span>
+                                <br>
+                                <span class="content">
+                                هیچ حیوانی حق پوشیدن لباس را ندارد.
+                            </span>
+                            </div>
+
+                            <div class="message alt">
+                                <span class="time">11:05am</span>
+                                <img src="./assets/img/user.jpg" alt="">
+
+                                <span class="name">شما</span>
+                                <br>
+                                <span class="content">
+                                هیچ حیوانی حق خوابیدن در تخت را ندارد.
+                            </span>
+                            </div>
+
+                            <div class="message alt">
+                                <span class="time">11:05am</span>
+                                <img src="./assets/img/user.jpg" alt="">
+
+                                <span class="name">شما</span>
+                                <br>
+                                <span class="content">
+                                هیچ حیوانی حق نوشیدن الکل را ندارد
+                            </span>
+                            </div>
+
+                            <div class="message">
+                                <img src="./assets/img/user.jpg" alt="">
+
+                                <span class="name">آرمین قاسمی</span>
+                                <span class="time">11:05am</span>
+                                <br>
+                                <span class="content">
+                                هیچ حیوانی حق کشتن حیوان دیگری را ندارد.
+                            </span>
+                            </div>
+
+                            <div class="strike">
+                                <span>۲ روز پیش</span>
+                            </div>
+
+                            <div class="message">
+                                <img src="./assets/img/user.jpg" alt="">
+
+                                <span class="name">بهار ناطق</span>
+                                <span class="time">11:05am</span>
+                                <br>
+                                <span class="content">
+                                همهٔ حیوانات با هم برابرند.
+                                <br>
+                                همهٔ حیوانات با هم برابرند.
+                            </span>
+                                <br>
+                                <span class="content no-avatar">
+                                همهٔ حیوانات با هم برابرند.
+                                <br>
+                                همهٔ حیوانات باهم برابرند، اما بعضی برابرترند.
+                            </span>
+                            </div>
+
+                            <div class="message">
+                                <img src="./assets/img/user.jpg" alt="">
+
+                                <span class="name">حسین عظیمی</span>
+                                <span class="time">11:05am</span>
+                                <br>
+                                <span class="content">
+                                همهٔ حیوانات باهم برابرند، اما بعضی برابرترند.
+                            </span>
+                            </div>
+
+                            <div class="strike">
+                                <span>۲ روز پیش</span>
+                            </div>
+
+                            <div class="message">
+                                <img src="./assets/img/user.jpg" alt="">
+
+                                <span class="name">محمود بازدار</span>
+                                <span class="time">11:05am</span>
+                                <br>
+                                <span class="content">
+                                همهٔ حیوانات باهم برابرند، اما بعضی برابرترند.
+                                <br>
+                                همهٔ حیوانات باهم برابرند، اما بعضی برابرترند.
+                            </span>
+                            </div>
+                    </div>
+
+
+                </section>
+                <section class="compose">
+                    <form class="" action="index.html" method="post">
+                        <input type="text" name="" value="" placeholder="پیام خود را بنویسید">
+                        <div class="actions">
+                            <button>
+                                <i class="material-icons">send</i>
+                            </button>
+                        </div>
+
+
+                    </form>
+                </section>
+            </div>
+            <!-- Chat Section End -->
+            <!-- Toaster -->
+            <div class="toaster-wrapper">
+                <div class="toaster call">
+                    <div class="user">
+                        <div class="account">
+                            <img src="/assets/fullscreen-demo/ashkan.jpg" alt="">
+                            <i class="material-icons status-icon online">check_circle</i>
+
+                            <span class="name">اشکان پورقاسم</span>
+                            <br>
+                            <span class="desc">مربی</span>
+                        </div>
+                    </div>
+                    <div class="actions pull-right">
+                        <button class="accept">
+                            <i class="material-icons">call</i>
+                        </button>
+                        <button class="decline">
+                            <i class="material-icons">call_end</i>
+                        </button>
+                    </div>
+                </div>
+                <div class="toaster success" >
+                    <i class="material-icons">check_circle</i>
+                    <span class="message">شما موفق شدید!</span>
+                </div>
+                <div class="toaster info" >
+                    <i class="material-icons">info</i>
+                    <span class="message">فقط میخواستم یه چیز کوچیک بهت بگم.</span>
+                </div>
+                <div class="toaster error">
+                    <i class="material-icons">error</i>
+                    <span class="message">داداچ داری اشتباه میزنی!</span>
+                </div>
+            </div>
+            <!-- Toaster End -->
+        </div>
+    </div>
+</section>
+<script type="text/javascript" src="./assets/js/main.min.js">
+
+</script>
+    </body>
+</html>
