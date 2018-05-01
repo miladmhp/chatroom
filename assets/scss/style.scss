@@ -1,13 +1,15 @@
 @import "../node_modules/material-design-lite/material.min.css";
-
+@font-face {
+font-family: "IranSans";
+src: url(../fonts/IRANSansWeb.woff);
+}
 body {
-  [md-button],
-  [md-fab],
-  [md-icon-button],
-  [md-mini-fab],
-  [md-raised-button] {
-    font-weight: inherit;
-  }
+    overflow: hidden;
+    font-family: 'IranSans';
+    button:focus {
+        outline: none;
+    }
+
   .md-button-toggle-label {
     margin-bottom: 0
   }
@@ -191,7 +193,7 @@ body {
         color: grey;
     }
     &.online {
-        color: green;
+        color: green
     }
 }
 
@@ -210,7 +212,8 @@ $skype-grey: #F5FAFC;
             transition: all 0.5s ease;
             margin-left: -66.66666667%;
             height: 100vh;
-            z-index: 9999;
+            z-index: 999;
+            position: relative;
             &:hover {
                 .actions {
                     opacity: 1;
@@ -220,13 +223,22 @@ $skype-grey: #F5FAFC;
                 margin-left: 0;
             }
             .self-cam {
-                height: 181px;
+                height: 200px;
+                width: 200px;
                 position: absolute;
-                bottom: 0;
-                left: 0;
+                background: white;
+                bottom: 30px;
+                left: 30px;
+                border-radius: 5px;
+                z-index: 9999;
+                box-shadow: 0px 0px 14px 1px #2b8db6;
+                video {
+                    max-width: 100%;
+                    height: 100%;
+                }
             }
             .actions {
-                opacity: 0;
+                opacity: 0.5;
                 transition: ease 0.5s all;
                 width: 100%;
                 text-align: center;
@@ -240,17 +252,22 @@ $skype-grey: #F5FAFC;
                     i {
                         font-size: 20px;
                         line-height: 24px;
+                        color: #fff;
                     }
-                    &.close-button {
-                        background-color: #000333;
+                    &.close-btn {
+                        background-color: #f44336 !important;
                     }
-                    &.default {
-                        background-color: #00bcd4;
+                    &.picture-btn {
+                        background-color: #03A9F4 !important;
                     }
-                }
-                .fullscreen-btn {
-                    @media (max-width: 882px) {
-                        display: none;
+                    &.fullscreen-btn {
+                        background-color: #607D8B !important;
+                        @media (max-width: 882px) {
+                            display: none;
+                        }
+                    }
+                    &.answer-btn {
+                        background-color: #66BB6A !important;
                     }
                 }
                 @media (max-width: 882px) {
@@ -323,11 +340,14 @@ $skype-grey: #F5FAFC;
             }
         }
         .user {
-            margin: 25px 0;
+            margin: 15px 0;
             overflow: hidden;
+
             div.account {
                 float: left;
+                cursor: pointer;
                 width: 100%;
+                transition: all 0.3s ease-in-out;
                 img {
                     width: 50px;
                     height: 50px;
@@ -342,11 +362,21 @@ $skype-grey: #F5FAFC;
                     display: inline-block;
                     text-overflow: ellipsis;
                     overflow: hidden;
+                    margin-top: 5px;
                 }
                 span.desc {
                     color: grey;
                     font-size: 12px;
                 }
+                &:hover {
+                    .call-overlay {
+                        visibility: visible;
+                        opacity: 1;
+                    }
+
+                    transform: translateX(-5px);
+                }
+
             }
             div.actions {
                 float: right;
@@ -409,15 +439,16 @@ $skype-grey: #F5FAFC;
 
             .search {
                 width: 100%;
-                margin: 35px 0;
+                height: 80px;
                 text-align: right;
                 display: flex;
                 align-items: center;
+                padding: 0 20px;
                 .mdl-textfield.mdl-js-textfield {
                     .mdl-button.mdl-js-button{
                         right: 0;
                         bottom: 20px;
-                        transition: all ease 0.3s;
+                        transition: all 0.5s ease;
                     }
                     &.is-focused {
                         .mdl-button.mdl-js-button{
@@ -447,7 +478,7 @@ $skype-grey: #F5FAFC;
             .call-overlay {
                 opacity: 0;
                 visibility: hidden;
-                transition: all 0.3s ease;
+                transition: all 0.5s ease;
                 position: absolute;
                 width: 50px;
                 height: 50px;
@@ -455,40 +486,6 @@ $skype-grey: #F5FAFC;
                 text-align: center;
                 background-color: rgba(28, 192, 255, 0.85);
                 color: white;
-                mat-icon {
-                    font-size: 20px;
-                    line-height: 50px;
-                }
-            }
-
-            mat-accordion {
-                mat-expansion-panel {
-                    box-shadow: none;
-                }
-                mat-expansion-panel-header {
-                    padding: 5px 20px;
-                    background-color: white;
-                    &:hover {
-                        background-color: white;
-                    }
-                }
-                .mat-expansion-panel-body {
-                    .user {
-                        position: relative;
-                        padding: 10px 20px;
-                        margin: 10px 0;
-                        transition: all 0.3s ease;
-                        cursor: pointer;
-                        &:hover {
-                            background-color: #dcf2fa;
-                            .call-overlay {
-                                visibility: visible;
-                                opacity: 1;
-                            }
-                        }
-                    }
-                    margin: 0 0 16px 0;
-                }
             }
             .members-box {
                 text-align: right;
@@ -545,13 +542,18 @@ $skype-grey: #F5FAFC;
 
             section.title {
                 padding: 0 20px;
-                border-bottom: 1px solid #cacaca;
                 margin: 0 -15px;
                 background: #eee;
                 position: relative;
                 transition: ease 0.3s all;
+                height: 80px;
+                z-index: 11;
+                box-shadow: 0 2px 2px 0 rgba(0,0,0,.1), 0 3px 1px -2px rgba(0,0,0,.1), 0 1px 5px 0 rgba(0,0,0,.1);
                 .name {
                     width: 300px !important;
+                }
+                div.account {
+                    transform: none !important;
                 }
                 @media (max-width: 882px) {
                     .show-xs {
@@ -567,14 +569,18 @@ $skype-grey: #F5FAFC;
                             line-height: 40px !important;
                         }
                     }
-                    div.account img {
-                        display: none;
+                    div.account {
+                        transform: none !important;
+                        img {
+                           display: none;
+                       }
                     }
                     span.name {
                         width: 230px !important;
                     }
                     .user {
                         margin: 15px 0;
+
                     }
                 }
                 .show-xs {
@@ -608,8 +614,10 @@ $skype-grey: #F5FAFC;
                         padding-right: 15px;
                         .message img {
                             margin-left: 0;
+                            box-shadow: 2px 1px 6px 0 #b5b5b5;
                         }
                         .message span.content {
+                            box-shadow: 2px 2px 5px 0px #e8e8e8;
                             max-width: 75%;
                         }
                     }
@@ -630,20 +638,22 @@ $skype-grey: #F5FAFC;
                         .message img {
                             margin-left: 0;
                             display: none;
+                            box-shadow: 2px 1px 6px 0 #b5b5b5;
                         }
                         .message span.content {
                             max-width: 85%;
+                            box-shadow: 2px 2px 5px 0px #e8e8e8;
                         }
                     }
                 }
             }
 
             section.messages {
-                height: 100vh;
-                margin-top: -101px;
-                margin-bottom: -122px;
-                padding-top: 100px;
-                padding-bottom: 121px;
+                height: 100%;
+                margin-top: -80px;
+                margin-bottom: -100px;
+                padding-top: 80px;
+                padding-bottom: 100px;
                 overflow-y: scroll;
                 @media (min-width: 1600px) {
                     padding-left: 250px;
@@ -677,9 +687,6 @@ $skype-grey: #F5FAFC;
                         padding-right: 30px;
                     }
                 }
-                .mCSB_scrollTools {
-                    margin-right: -100px;
-                }
                 .message {
                     width: 100%;
                     padding: 10px 0;
@@ -689,6 +696,7 @@ $skype-grey: #F5FAFC;
                         border-radius: 50%;
                         margin: 0 15px;
                         float: left;
+                        box-shadow: 2px 1px 6px 0 #b5b5b5;
                         @media (max-width: 500px) {
                             display: none;
                         }
@@ -698,18 +706,27 @@ $skype-grey: #F5FAFC;
                         margin-left: 10px;
                         color: grey;
                         font-size: 12px;
+                        margin-top: 5px;
                     }
                     span.time {
                         float: left;
                         color: grey;
                         font-size: 12px;
                     }
-                    span.content {
-                        display: inline-block;
-                        background-color: #bfe9f9;
-                        padding: 0.5rem 1.25rem;
-                        border-radius: 4px;
-                        margin: 5px 0;
+                    span.content{
+
+                        &:not(.no-bg) {
+                            background-color: #ade1ff;
+                            box-shadow: 2px 2px 5px 0px #e8e8e8;
+                            position: relative;
+                        	clear: both;
+                        	display: inline-block;
+                        	padding: 16px 20px;
+                        	margin: 5px 0 10px 0;
+                        	border-radius: 5px;
+                            line-height: 1.8;
+                        }
+
                         i {
                             color: #ff8c00;
                             vertical-align: middle;
@@ -719,6 +736,8 @@ $skype-grey: #F5FAFC;
                         &.no-bg {
                             background-color: transparent;
                             padding-left: 10px;
+                            display: block;
+                            padding-top: 10px;
                         }
                         @media (max-width: 500px) {
                             max-width: 80%;
@@ -754,11 +773,29 @@ $skype-grey: #F5FAFC;
                         font-size: 12px;
                     }
                     span.content {
-                        display: inline-block;
-                        background-color: #dcf2fa;
-                        padding: 0.5rem 1.25rem;
-                        border-radius: 4px;
-                        margin: 5px 0;
+                        &:not(.no-bg) {
+                            background-color: #dde2e3;
+                            box-shadow: -2px 2px 5px 0px #e8e8e8;
+                            position: relative;
+                        	clear: both;
+                        	display: inline-block;
+                        	padding: 16px 20px;
+                        	margin: 5px 0 10px 0;
+                        	border-radius: 5px;
+                            line-height: 1.8;
+
+                            &:after {
+                                content: '';
+                                position: absolute;
+                                top: 15px;
+                                width: 0;
+                                height: 0;
+                                border-top: 15px solid #dde2e3;
+                                border-right: 15px solid transparent;
+                                right: -11px;
+                            }
+                        }
+
                     }
                 }
             }
@@ -766,6 +803,7 @@ $skype-grey: #F5FAFC;
             section.compose {
                 margin: 0 -15px;
                 background: #eee;
+                box-shadow: 0px -2px 2px 0px rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
                 @media (min-width: 1600px) {
                     padding: 20px 265px;
                 }
@@ -782,29 +820,17 @@ $skype-grey: #F5FAFC;
                     padding: 15px 15px;
                     height: 80px;
                 }
-
-                height: 122px;
+                height: 100px;
                 position: relative;
                 transition: ease 0.3s all;
-                .compose-input {
-                    height: 100%;
-                    overflow: auto;
-                    width: 85%;
-                    display: inline-block;
-                    float: left;
-
-                    mat-form-field {
-                        width: 100%;
-                        textarea {
-                            resize: none;
-                            overflow: hidden;
-                        }
-                        .mat-input-underline {
-                            display: none;
-                        }
-                        .mat-form-field-placeholder-wrapper label {
-                            color: #00aff0;
-                        }
+                .compose-form{
+                    width: 100% !important;
+                    .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label {
+                        width: 100% !important;
+                    }
+                    .send-message-btn {
+                        transform: rotate(180deg);
+                        transform-origin: center center;
                     }
                 }
                 .actions {
@@ -833,10 +859,10 @@ $skype-grey: #F5FAFC;
                 &:before {
                     content: "";
                     position: absolute;
-                    left: 1%;
+                    left: 0;
                     top: 0;
                     height: 1px;
-                    width: 98%;
+                    width: 100%;
                     border-top: 1px solid #cacaca;
                 }
 
@@ -858,10 +884,10 @@ $skype-grey: #F5FAFC;
     }
 }
 .user {
-    margin: 25px 0;
+    margin: 15px 0;
     display: inline-block;
     width: 100%;
-    div.account {
+    .account {
         float: left;
         width: 100%;
         img {
@@ -1026,20 +1052,13 @@ div.toaster-wrapper {
     }
 }
 
-@font-face {
-    font-family: irsans;
-    src: url('/assets/fonts/ttf/IRANSansWeb_Light.ttf');
-}
-
 perfect-scrollbar>.ps {
     max-width: initial !important;
 }
 
 #chatroom-new.rtl {
-    font-family: irsans !important;
     .name {
         direction: rtl;
-        font-family: irsans
     }
     div.toaster-wrapper {
         left: 20px;
@@ -1049,6 +1068,9 @@ perfect-scrollbar>.ps {
         position: absolute;
         right: 0;
         border-left: 1px solid #D6E6EC;
+        padding: 0px;
+        width: 100%;
+        overflow-x: hidden;
     }
     .chat {
         &:not(.small) {
@@ -1087,13 +1109,16 @@ perfect-scrollbar>.ps {
         margin-top: 4px;
     }
     .user div.account img {
+        box-shadow: -2px 0px 6px 0px #b5b5b5;
         float: right;
         margin-left: 15px;
         margin-right: 0;
     }
     .members .call-overlay {
-        margin-top: 1px;
-        right: 20px;
+        right:0px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     .chat .messages .message .content:not(.no-bg), .strike {
         direction: rtl;
@@ -1147,4 +1172,57 @@ perfect-scrollbar>.ps {
             float: left;
         }
     }
+}
+.mdl-button.mdl-button--colored {
+    color: #366f8a !important;
+}
+.mdl-textfield--floating-label.has-placeholder .mdl-textfield__label, .mdl-textfield--floating-label.is-dirty .mdl-textfield__label, .mdl-textfield--floating-label.is-focused .mdl-textfield__label{
+    color: #366f8a !important;
+}
+.mdl-textfield__label:after {
+    background-color:  #366f8a !important;
+}
+.mdl-textfield.is-focused .mdl-textfield__input {
+    border:none !important
+}
+.mdl-textfield .mdl-textfield__input {
+    text-align: right;
+}
+.mdl-textfield__label {
+    text-align: right !important;
+    &:after {
+        bottom: 14px !important
+    }
+}
+
+.mdl-textfield .mdl-button.mdl-js-button.mdl-button--icon.mdl-button--colored {
+    left: 0;
+    bottom: 20px;
+    transition: all 0.5s ease;
+}
+
+.mdl-textfield.mdl-js-textfield.is-focused .mdl-button.mdl-js-button {
+    bottom: 30px;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #0000001a;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    transition: all 0.5s ease;
+    background: #888;
+    border-radius: 5px;
+    height: 300px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }

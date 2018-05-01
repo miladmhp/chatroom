@@ -31,5 +31,5 @@ gulp.task('js', function(){
 });
 
 gulp.task('default', function () {
-    gulp.watch([ './scss/style.scss', './scripts/*.js'], ['css', 'js']);
+    gulp.watch([ './scss/style.scss', './scripts/script.js'], ['css', 'js']);
 });
